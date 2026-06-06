@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To My Favorite School Junior! 🎒</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            -webkit-tap-highlight-color: transparent; /* Removes blue flash on mobile tap */
+        }
+
+        body {
+            background: linear-gradient(135deg, #e0f2fe, #bae6fd); /* Cute school blue theme */
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 450px;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Card Styles */
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(14, 165, 233, 0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Clickable Card Specific Styling */
+        .clickable-card {
+            cursor: pointer;
+        }
+        
+        .clickable-card:active {
+            transform: scale(0.97); 
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* Typography & Elements */
+        h1 {
+            color: #0284c7;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+            user-select: none;
+        }
+
+        p {
+            color: #475569;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+            user-select: none;
+        }
+
+        .hint-text {
+            font-size: 0.85rem;
+            color: #0ea5e9;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            font-weight: bold;
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        .btn {
+            background: #0ea5e9;
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(14, 145, 233, 0.3);
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .btn:hover {
+            background: #0284c7;
+            transform: scale(1.05);
+        }
+
+        /* CSS Clapping Cat Animation */
+        .cat-container {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            position: relative;
+        }
+
+        .cat {
+            width: 100%;
+            height: 100%;
+            background: #f8fafc;
+            border-radius: 50% 50% 40% 40%;
+            position: relative;
+            border: 3px solid #334155;
+        }
+
+        .cat::before, .cat::after { 
+            content: '';
+            position: absolute;
+            top: -10px;
+            width: 30px;
+            height: 30px;
+            background: #f8fafc;
+            border: 3px solid #334155;
+            border-bottom: none;
+        }
+        .cat::before { left: 15px; border-radius: 10px 0 0 0; transform: rotate(-15deg); }
+        .cat::after { right: 15px; border-radius: 0 10px 0 0; transform: rotate(15deg); }
+
+        .eyes {
+            display: flex;
+            justify-content: space-between;
+            width: 50px;
+            margin: 35px auto 0;
+        }
+        .eye {
+            width: 10px;
+            height: 10px;
+            background: #334155;
+            border-radius: 50%;
+        }
+
+        .mouth {
+            width: 12px;
+            height: 8px;
+            border: 2px solid #334155;
+            border-top: none;
+            border-radius: 0 0 10px 10px;
+            margin: 5px auto;
+        }
+
+        .paws {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            position: absolute;
+            bottom: 15px;
+            width: 100%;
+            left: 0;
+        }
+
+        .paw {
+            width: 25px;
+            height: 20px;
+            background: #fff;
+            border: 3px solid #334155;
+            border-radius: 50%;
+            animation: clap 0.2s infinite alternate ease-in-out;
+        }
+
+        .paw-right {
+            animation-delay: 0.1s;
+        }
+
+        @keyframes clap {
+            0% { transform: translateY(0) scaleX(1); }
+            100% { transform: translateY(-8px) scaleX(1.1); }
+        }
+
+        /* Meme Slideshow Styles */
+        .meme-container {
+            margin: 10px 0 20px;
+            min-height: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .meme-placeholder {
+            width: 100%;
+            height: 200px;
+            background: #f0f9ff;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            border: 2px dashed #0ea5e9;
+        }
+
+        /* Floating Sparkles decoration */
+        .heart-deco {
+            font-size: 2rem;
+            color: #0ea5e9;
+            margin: 10px 0;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <div id="step-invite" class="card">
+            <div class="heart-deco">🎒✨</div>
+            <h1>Hey Junior!</h1>
+            <p>Your senior made a little something special just for you. Tap the button below to see it!</p>
+            <button class="btn" onclick="nextStep('step-invite', 'step-welcome')">Open Invitation Mail ✉️</button>
+        </div>
+
+        <div id="step-welcome" class="card hidden">
+            <div class="cat-container">
+                <div class="cat">
+                    <div class="eyes"><div class="eye"></div><div class="eye"></div></div>
+                    <div class="mouth"></div>
+                    <div class="paws">
+                        <div class="paw paw-left"></div>
+                        <div class="paw paw-right"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <h1>Happy Best Friends Day!</h1>
+            <p>Even though our bond really grew closer towards the very end of school time, you have become such an incredibly important part of my life. I am so glad we connected when we did! 🥰⭐</p>
+            <button class="btn" onclick="nextStep('step-welcome', 'step-memes')">Open Cards 🃏</button>
+        </div>
+
+        <div id="step-memes" class="card clickable-card hidden" onclick="showNextMeme()">
+            <div class="hint-text">👉 Tap card to read next 👈</div>
+            <h1 id="card-title">School Moods</h1>
+            
+            <div class="meme-container" id="card-content-area">
+                <div id="meme-graphic" class="meme-placeholder">🥺</div>
+                <p id="meme-text">"It's crazy how we didn't hang out much early on, but by the end of school, you became my favorite person."</p>
+            </div>
+        </div>
+
+        <div id="step-thanks" class="card hidden">
+            <div class="heart-deco">✨💙✨</div>
+            <h1>Happy Best Friends Day!</h1>
+            <p>Thanks for looking through these cards! School might be ending/over, but our friendship definitely isn't. Love you tons, kiddo!</p>
+            <p style="font-weight: bold; color: #0284c7;">You've got an amazing senior for life. 🏁🎉</p>
+            <button class="btn" onclick="restart()">Read Again 🔄</button>
+        </div>
+
+    </div>
+
+    <script>
+        // Tailored story slides for your junior
+        const cardsData = [
+            { 
+                title: "How It Started", 
+                emoji: "🥺", 
+                text: "It's crazy how we didn't talk much throughout the year, but during those final days of school, everything just clicked and you became my favorite person." 
+            },
+            { 
+                title: "That One Day... 🏃‍♂️", 
+                emoji: "🚌", 
+                text: "Remember that one day I actually came all the way to school just to see you, but things didn't line up and we weren't able to meet? I was so bummed, but it made me realize how much I cherish our time!" 
+            },
+            { 
+                title: "Always Here For You", 
+                emoji: "🛡️", 
+                text: "School times change and people move on, but I want you to know that your senior is always going to be right here for you. No matter what you're going through, I will always support you, listen to you, and guide you." 
+            },
+            { 
+                title: "A Final Promise", 
+                emoji: "🤝", 
+                text: "Whenever things get stressful or you just need to vent, remember you have a permanent cheerleader in me. Distance or different schedules won't change a thing!" 
+            }
+        ];
+
+        let currentMemeIndex = 0;
+
+        function nextStep(currentId, nextId) {
+            document.getElementById(currentId).classList.add('hidden');
+            document.getElementById(nextId).classList.remove('hidden');
+        }
+
+        function showNextMeme() {
+            currentMemeIndex++;
+            
+            if (currentMemeIndex < cardsData.length) {
+                const currentData = cardsData[currentMemeIndex];
+                document.getElementById('card-title').innerText = currentData.title;
+                
+                const contentArea = document.getElementById('card-content-area');
+                contentArea.innerHTML = `
+                    <div id="meme-graphic" class="meme-placeholder">${currentData.emoji}</div>
+                    <p id="meme-text">${currentData.text}</p>
+                `;
+            } else {
+                nextStep('step-memes', 'step-thanks');
+            }
+        }
+
+        function restart() {
+            currentMemeIndex = 0;
+            document.getElementById('card-title').innerText = cardsData[0].title;
+            document.getElementById('card-content-area').innerHTML = `
+                <div id="meme-graphic" class="meme-placeholder">${cardsData[0].emoji}</div>
+                <p id="meme-text">${cardsData[0].text}</p>
+            `;
+            nextStep('step-thanks', 'step-invite');
+        }
+    </script>
+</body>
+</html>
